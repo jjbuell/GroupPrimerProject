@@ -6,24 +6,30 @@
 //
 
 import UIKit
+import SwiftUI
 
-class DetailViewController: UIViewController {
-
+class ViewController: UIViewController {
+    
+    fileprivate let contentViewInHC = UIHostingController(rootView: CView())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpHC()
+        setUpConstraints()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUpHC()  {
+        addChild(contentViewInHC)
+        view.addSubview(contentViewInHC.view)
+        contentViewInHC.didMove(toParent: self)
     }
-    */
-
+    
+    func setUpConstraints()  {
+        contentViewInHC.view.translatesAutoresizingMaskIntoConstraints = false
+        contentViewInHC.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        contentViewInHC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        contentViewInHC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        contentViewInHC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
 }
