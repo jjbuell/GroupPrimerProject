@@ -13,7 +13,7 @@ class PersonController {
     
     let people: [Person] = {
         
-        let brysonJ = Person(name: "Bryson Jones", image: UIImage(named: "brysonJ")!, age: 31, location: "Alpine, Utah", bio: "Blah Blah Blah")
+        let brysonJ = Person(name: "Bryson Jones", photo: UIImage(named: "brysonJ")!, age: 31, location: "Alpine, Utah", bio: "Blah Blah Blah", imageName: "Bryson Jones")
         
         return [brysonJ]
         
